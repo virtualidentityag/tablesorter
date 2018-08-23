@@ -849,7 +849,7 @@
 			if ( wo.filter_reset ) {
 				if ( wo.filter_reset instanceof $ ) {
 					// reset contains a jQuery object, bind to it
-					wo.filter_reset.click( function() {
+					wo.filter_reset.on('click', function() {
 						c.$table.triggerHandler( 'filterReset' );
 					});
 				} else if ( $( wo.filter_reset ).length ) {
@@ -918,7 +918,7 @@
 
 			tsf.bindSearch( table, c.$table.find( '.' + tscss.filter ), true );
 			if ( wo.filter_external ) {
-				tsf.onSearch( table, wo.filter_external );
+				tsf.bindSearch( table, wo.filter_external );
 			}
 
 			if ( wo.filter_hideFilters ) {
